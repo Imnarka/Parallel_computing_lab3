@@ -8,25 +8,7 @@
 
 using std::cout;
 
-void calculate_M2(int N, double **M1) {
-	double** E = new double* [N];
-	for (int i = 0; i < N; i++) {
-		E[i] = new double[N];
-	}
-	printf("Matrix E\n");
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			E[i][j] = (double)rand() / RAND_MAX * (10 - 0) + 0;
-			cout << E[i][j] << " ";
-		}
-		cout << "\n";
-	}
-}
-
-int main()
-{
-	int N;
-	scanf("%d", N);
+void problem1(int N) {
 	srand(time(NULL));
 	double** M1 = new double* [N];
 	for (int i = 0; i < N; i++) {
@@ -35,7 +17,7 @@ int main()
 	printf("Matrix M1\n");
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
-			M1[i][j] = (double)rand() / RAND_MAX * (12 -10) -10;
+			M1[i][j] = (double)rand() / RAND_MAX * (12 - 10) - 10;
 			cout << M1[i][j] << " ";
 		}
 		cout << "\n";
@@ -74,9 +56,16 @@ int main()
 			M3[i][j] = 0.0;
 			for (int k = 0; k < N; k++) {
 				M3[i][j] += M1[i][k] * M2[k][j];
-				cout << M3[i][j] <<" ";
+				cout << M3[i][j] << " ";
 			}
 			cout << "\n";
 		}
 	}
+}
+
+int main()
+{
+	int N;
+	scanf("%d", N);
+	problem1(N);
 }
